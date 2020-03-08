@@ -1,4 +1,4 @@
-# CSE447: Recurrent Neural Networks, Attention, and Reading Comprehension
+# Reading Comprehension with Neural Networks
 
 **WARNING: This code only works with Python 3.6!**
 You can check your version of Python with `python --version`.
@@ -64,4 +64,34 @@ In addition, the code expects `glove.6B.50d` vectors in `./glove/`. You can down
 these vectors from the [GloVe website @ StanfordNLP](https://nlp.stanford.edu/projects/glove/) ---
 `glove.6B.zip` is the archive you want, and unzipping it will give you the vectors. Feel free to
 experiment with using the other GloVe vectors as well!
+
+## Running Experiments
+To train a model (with GPU) and save the parameters, run:
+```
+python train_model.py --save-dir saved_models/<model_name> --cuda --num-epochs 25
+```
+To test the mode, run:
+```
+python train_model.py --load-path saved_models/<model_name>/<desired .pth file>
+```
+## Monitoring with Tensorboard
+Run 
+```
+tensorboard --log-dir saved_models/ --host 127.0.0.1
+```
+You can access `tensorboard` at http://localhost:6006.
+
+Assuming `tensorboard` is running on a remote machine on port 6006, you can access tensorboard on port 16006 on your local machine by running the following on your local machine:
+```
+ssh -NL 16006:127.0.0.1:6006 <user>@<server ip or hostname>
+```
+
+## Demo
+Run
+```
+python train_model.py --load-path <path to .pth file> --demo
+```
+and access the local demo server at http://localhost:5000. For access from a remote server, refer to the methods described in the above section.
+
+[![Image from Gyazo](https://i.gyazo.com/ec9b225759d10f5d5abbaeac23b75139.gif)](https://gyazo.com/ec9b225759d10f5d5abbaeac23b75139)
 
