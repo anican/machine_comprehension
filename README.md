@@ -21,13 +21,13 @@ used for development along with all the dependencies needed to run the code.
 2.  Change your directory to your clone of this repo.
 
     ```
-    cd CSE447_RNN
+    cd machine_comprehension
     ```
 
 3.  Create a Conda environment with Python 3.
 
     ```
-    conda create -n 447_rnn python=3.6
+    conda create -n nlp python=3.6
     ```
 
 4.  Now activate the Conda environment.
@@ -35,7 +35,7 @@ used for development along with all the dependencies needed to run the code.
     want to run code from this repo.
 
     ```
-    source activate 447_rnn
+    conda activate nlp
     ```
 
 5.  Install the required dependencies.
